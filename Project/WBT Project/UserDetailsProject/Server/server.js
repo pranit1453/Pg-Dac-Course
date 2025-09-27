@@ -3,9 +3,7 @@ const fs = require('fs');
 const cors = require('cors');
 /*
     CORS (Cross-Origin Resource Sharing) in Express.js is a mechanism that allows web applications running on 
-    one domain (origin) to make requests to resources on another domain. This is crucial because web browsers, 
-    by default, enforce a "Same-Origin Policy" for security reasons, preventing scripts from making cross-origin 
-    requests unless explicitly permitted by the server.
+    one domain (origin) to make requests to resources on another domain.
 */
 const app = express();
 const PORT = 8080;
