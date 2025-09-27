@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Formatting</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <h3>Enter text to format:</h3>
+    
+    <input type="text" id="userInput" placeholder="Type something here">
+    
+  
+    <button id="italicButton">Make Italic</button>
+    <button id="underlineButton">Underline Text</button>
+    
+    
+    <p id="formattedText"></p>
+
+    <script>
+        $(document).ready(function(){
+            
+            $("#italicButton").click(function(){
+                let userText = $("#userInput").val();  
+                $("#formattedText").text(userText).css("font-style", "italic");  
+            });
+
+         
+            $("#underlineButton").click(function(){
+                let userText = $("#userInput").val();  
+                $("#formattedText").text(userText).css("text-decoration","underline"); 
+            });
+        });
+    </script>
+</body>
+</html>

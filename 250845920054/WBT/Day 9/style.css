@@ -1,0 +1,21 @@
+#content {
+    margin-top: 40px;
+    /* padding: 10px; */
+    border: 1px solid #c41818;
+
+}
+
+table {
+    width: 100%;
+    border-width: 10%;
+    border-collapse: separate;
+}
+
+table, th, td {
+    border: 1px solid rgb(216, 162, 12);
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}

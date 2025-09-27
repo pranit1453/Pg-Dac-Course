@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text on Multiple Lines</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+
+    <p id="userInput" contenteditable="true" aria-placeholder="Type something here"
+        style="border: 1px solid #ccc; padding: 10px; min-height: 50px; cursor: text;">
+        Type something here...
+    </p>
+
+    <p id="multilineText" style="cursor: pointer;">Click here to display the text</p>
+
+    <script>
+        $(document).ready(function () {
+            $("#multilineText").click(function () {
+
+                let uInput = $("#userInput").text();
+
+
+                let r = prompt("Enter the number of rows:");
+
+
+                r = parseInt(r);
+
+                if (!isNaN(r) && r > 0) {
+                    let rowLength = Math.ceil(uInput.length / r);
+                    let rows = [];
+
+                    [...Array(r)].forEach((_, i) => {
+                        rows.push(uInput.slice(i * rowLength, (i + 1) * rowLength));
+                    });
+
+                    let formattedText = rows.join("<br>");
+                    $("#multilineText").html(formattedText);
+                }
+
+                else {
+                    alert("Please enter a valid number for rows.");
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

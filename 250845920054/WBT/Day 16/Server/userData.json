@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Pranit Bhangale",
+    "email": "pranitbhangale14@gmail.com",
+    "education": "UnderGraduate",
+    "degree": "",
+    "year": "",
+    "score": "",
+    "univ": "",
+    "pgScore": "",
+    "pgyear": "2017",
+    "thesis": "AIML",
+    "ssc": "83.60",
+    "hsc": "89.33"
+  },
+  {
+    "name": "Pranit ",
+    "email": "pranitbhangale@gmail.com",
+    "education": "PostGraduate",
+    "degree": "",
+    "year": "",
+    "score": "",
+    "univ": "",
+    "pgScore": "",
+    "pgyear": "2025",
+    "thesis": "AIML",
+    "ssc": "83.60",
+    "hsc": "89.33"
+  },
+  {
+    "name": "Pranav",
+    "email": "Pranav@gmail.com",
+    "education": "Graduate",
+    "degree": "BE",
+    "year": "2025",
+    "score": "10",
+    "univ": "IIIIT",
+    "pgScore": "",
+    "pgyear": "",
+    "thesis": "",
+    "ssc": "",
+    "hsc": ""
+  }
+]

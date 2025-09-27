@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SlideDown and SlideUp</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <button id="slideDownBtn">Slide Down</button>
+    <button id="slideUpBtn">Slide Up</button>
+
+    <div id="slideDiv" style="width: 200px; height: 100px; background-color: lightblue; display: none;">
+        This is a sliding Demo!
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $("#slideDownBtn").click(function() {
+                $("#slideDiv").slideDown(1000);
+            });
+
+            $("#slideUpBtn").click(function() {
+                $("#slideDiv").slideUp(1000);
+            });
+        });
+    </script>
+</body>
+</html>

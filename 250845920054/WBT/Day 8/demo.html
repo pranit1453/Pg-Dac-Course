@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Form</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        /* Add your styles here */
+    </style>
+</head>
+
+<body>
+    <div>
+        <h2>Employee Form</h2>
+        <form id="employeeForm">
+            <label for="fName">First Name:</label>
+            <input type="text" id="fName" /><br><br>
+
+            <label for="lName">Last Name:</label>
+            <input type="text" id="lName" /><br><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" /><br><br>
+
+            <label for="uDOB">DOB:</label>
+            <input type="date" id="uDOB" /><br><br>
+
+            <button type="submit">Add Employee</button>
+        </form>
+
+        <div id="errorMsg" style="color: red;"></div>
+        <table id="employeeTable" style="display:none; width: 100%; border: 1px solid black;">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>DOB</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <p id="p1" style="visibility: hidden;">Employee Count: 0</p>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            let counter = (function() {
+                let cnt = 0;
+                return function() {
+                    return ++cnt;
+                };
+            })();
+
+            // Handle form submission
+            $("#employeeForm").submit(function(event) {
+                event.preventDefault();
+
+                let fname = $("#fName").val().trim();
+                let lname = $("#lName").val().trim();
+                let uEmail = $("#email").val().trim();
+                let dob = $("#uDOB").val();
+
+                let errorMsg = $("#errorMsg");
+                let table = $("#employeeTable");
+                let data = $("#p1");
+
+                if (!fname || !lname || !uEmail || !dob) {
+                    errorMsg.text("All fields are required!");
+                    table.hide();
+                    return;
+                }
+
+                // Add new row to table
+                let newRow = $("<tr></tr>")
+                    .append($("<td></td>").text(fname))
+                    .append($("<td></td>").text(lname))
+                    .append($("<td></td>").text(uEmail))
+                    .append($("<td></td>").text(dob))
+                    .append($("<td></td>").html('<button class="editBtn">Edit</button><button class="deleteBtn">Delete</button>'));
+
+                $("#employeeTable tbody").append(newRow);
+
+                // Update employee count
+                data.text("Employee Count: " + counter());
+
+                // Reset error message and show the table
+                errorMsg.text("");
+                table.show();
+                data.css("visibility", "visible");
+
+                // Clear input fields
+                clearInput();
+            });
+
+            // Edit data function
+            $(document).on("click", ".editBtn", function() {
+                let row = $(this).closest("tr");
+
+                let fname = row.find("td").eq(0).text();
+                let lname = row.find("td").eq(1).text();
+                let email = row.find("td").eq(2).text();
+                let dob = row.find("td").eq(3).text();
+
+                let fnameInput = prompt("Enter updated First Name: ", fname);
+                let lnameInput = prompt("Enter updated Last Name: ", lname);
+                let emailInput = prompt("Enter updated Email: ", email);
+                let dobInput = prompt("Enter updated DOB: ", dob);
+
+                row.find("td").eq(0).text(fnameInput);
+                row.find("td").eq(1).text(lnameInput);
+                row.find("td").eq(2).text(emailInput);
+                row.find("td").eq(3).text(dobInput);
+            });
+
+            // Delete data function
+            $(document).on("click", ".deleteBtn", function() {
+                $(this).closest("tr").remove();
+            });
+
+            // Clear input fields
+            function clearInput() {
+                $("#fName").val("");
+                $("#lName").val("");
+                $("#email").val("");
+                $("#uDOB").val("");
+            }
+        });
+    </script>
+</body>
+
+</html>

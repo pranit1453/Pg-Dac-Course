@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Table</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+
+    <input type="number" id="num" placeholder="Enter number">
+    <input type="number" id="fromNo" placeholder="From">
+    <input type="number" id="toNo" placeholder="To">
+    <button id="showTable">Show Table</button>
+
+    <table id="table"></table>
+
+    <script>
+        $(document).ready(function () {
+            $("#showTable").click(function () {
+                let num = parseInt($("#num").val());
+                let from = parseInt($("#fromNo").val());
+                let to = parseInt($("#toNo").val());
+                let table = $("#table").empty();
+
+                if (num && from && to) {
+                    for (let i = from; i <= to; i++) {
+                        table.append("<tr><td>" + num + " * " + i + " = " + (num * i) + "</td></tr>");
+                    }
+                } else {
+                    alert("Please fill all fields");
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

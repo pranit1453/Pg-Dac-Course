@@ -1,0 +1,22 @@
+1.pwd ---> present working directory (it is current location)
+2.whoami---> it give a user of name
+3.ls--->list content of directory 
+4.mkdir--> create new directory
+5.rmdir--> remove directory
+6.ls -lt-->it give list with details
+7.ls -ltr-->it give list in reverse order
+8.date-->give date,time and all details
+9.date +%D--> only date
+10.date +%T--> only time
+11.date +%H:%M--> hour and min
+12.touch fileName-->to create file
+13. nano/vi fileName.txt--> to open editior
+14. insert (message)
+15.:mq----> to save
+16. ctrl c-----:mq to back off from editor
+17. cat filename----> to display
+18.cd ..--->exit directory
+19.mv fileName directoryName-->to move directory
+20.cp fileName directoryName
+
+        git remote add origin https://github.com/YourUsername/YourRepository.git 

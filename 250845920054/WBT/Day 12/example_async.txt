@@ -1,0 +1,2 @@
+Hello, this is asynchronous file writing!
+Another line.

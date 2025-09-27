@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text on Multiple Lines</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+
+   
+    <p id="userInput" aria-placeholder="Type something here"></p>
+    <!--changes the mouse cursor into a hand icon to indicate that an element is clickable or interactive, like a link or button-->
+    <p id="multilineText" style="cursor: pointer;"></p>
+
+    <script>
+        $(document).ready(function () {
+            $("#multilineText").click(function () {
+                let uInput = $("#userInput").val();
+                $("#multilineText").text(uInput)
+                // $(this).html("Line 1<br>Line 2<br>Line 3");
+            });
+        });
+    </script>
+</body>
+
+</html>

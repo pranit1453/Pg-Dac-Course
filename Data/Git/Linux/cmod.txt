@@ -1,0 +1,24 @@
+UGO  -->User Group Other
+0 -->Nothing
+1 -->execute
+2 -->Write 
+3 -->write + execute
+4 -->Read
+5 -->Read + execute
+6 -->Read + write
+7 -->Read+write+execute
+
+cmod 777 file name
+
+****In Linux variables are of 3 types****
+
+1)local variable.
+2)environmental variable.
+3)shell variable.
+
+.sh file
+
+shbang line -- 
+# ! bin <\folderName>
+OR
+#!\bin\bash<\folderName>

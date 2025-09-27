@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculator</title>
+  <style>
+    h1{
+      text-align: center;
+    }
+    form{
+      text-align: center;
+    }
+    h2{
+      text-align: center;
+    }
+  </style>
+</head>
+<body style="background-color: #212121; color: #fff">
+  <h1>Simple Calculator</h1>
+  <form action="/calculate" method="GET">
+    <input type="number" name="num1" placeholder="Enter first number" required>
+    <input type="number" name="num2" placeholder="Enter second number" required>
+
+    <select name="operation" required>
+      <option value="add">Addition (+)</option>
+      <option value="subtract">Subtraction (-)</option>
+      <option value="multiply">Multiplication (x)</option>
+      <option value="divide">Division (÷)</option>
+    </select>
+
+    <button type="submit">Calculate</button>
+  </form>
+
+  {{#if result}}
+    <h2>Result: {{result}}</h2>
+  {{/if}}
+</body>
+</html>

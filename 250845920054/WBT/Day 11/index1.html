@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Server Creation</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <h1>Hello from Node.js Server!</h1>
+  <button id="clickMe">Click Me</button>
+  <p id="message"></p>
+
+  <script>
+    $(document).ready(function () {
+      $('#clickMe').click(function () {
+        $.get("https://jsonplaceholder.typicode.com/posts/", function (data) {
+          $('#message').text("Data loaded successfully!");
+          console.log(data);
+        }).fail(function () {
+          $('#message').text("Failed to load data.");
+        });
+      });
+    });
+  </script>
+</body>
+</html>

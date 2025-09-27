@@ -1,0 +1,2 @@
+Hello, this is Synchronous File Writing!
+Another line.

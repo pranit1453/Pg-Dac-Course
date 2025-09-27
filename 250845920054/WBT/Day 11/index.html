@@ -1,0 +1,21 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Node + jQuery Example</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <h1>Hello from Node.js Server!</h1>
+  <button id="clickMe">Click Me</button>
+  <p id="message"></p>
+
+  <script>
+    $(document).ready(function () {
+      $('#clickMe').click(function () {
+        $('#message').text('Button clicked using jQuery!');
+      });
+    });
+  </script>
+</body>
+</html>

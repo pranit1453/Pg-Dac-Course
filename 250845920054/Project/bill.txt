@@ -1,0 +1,3 @@
+Bill #101 | John | Total: 2000
+Bill #101 | John | Total: 1600
+Bill #101 | John | Total: 1200

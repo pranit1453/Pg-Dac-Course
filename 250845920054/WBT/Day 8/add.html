@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AD with FadeIn/FadeOut</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+    <div id="ad" style="width: 300px; height: 200px; background: yellow; text-align: center; padding: 20px;">
+        This is an advertisement.
+    </div>
+    <button id="disappearBtn">Disappear Ad</button>
+    <button id="appearBtn">Appear Ad</button>
+
+
+    <script>
+
+        $(document).ready(function () {
+            $("#disappearBtn").click(function () {
+                $("#ad").fadeOut(1000);
+            })
+            $("#appearBtn").click(function (){
+                $("#ad").fadeIn(1050);
+            })
+        })
+        
+    </script>
+</body>
+
+</html>

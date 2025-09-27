@@ -1,0 +1,7 @@
+Bill ID: 1
+Customer: John Doe
+Items:
+- Pen ($1.5)
+- Notebook ($3)
+Total: $4.5
+

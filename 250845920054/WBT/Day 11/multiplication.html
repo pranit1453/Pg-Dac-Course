@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication</title>
+</head>
+<body>
+    <h2>Multiplication of 2 Positive Numbers</h2>
+
+    <label for="num1">Enter First Number:</label>
+    <input type="text" id="num1"/>
+    <br /><br />
+    <label for="num2">Enter Second Number:</label>
+    <input type="text" id="num2"/>
+    <br /><br />
+    <button id="multiplyBtn">Multiply</button>
+    <p id="result"></p>
+    
+    <script>
+function multiplication(num1, num2) {
+    return new Promise((resolve, reject) => {
+        if (typeof num1 !== "number" || typeof num2 !== "number" || isNaN(num1) || isNaN(num2)) {
+            reject('Both inputs must be valid numbers');
+        } else if (num1 > 0 && num2 > 0) {
+            const result = num1 * num2;
+            resolve(result);
+        } else {
+            reject('Both numbers must be POSITIVE');
+        }
+    });
+}
+
+        const multiplyBtn = document.getElementById('multiplyBtn');
+        const resultEl = document.getElementById('result');
+
+        multiplyBtn.addEventListener('click', () => {
+            let num1 = Number(document.getElementById('num1').value);
+            let num2 = Number(document.getElementById('num2').value);
+
+            multiplication(num1, num2)
+                .then(result => {
+                    resultEl.textContent = `Multiplication Result of the 2 numbers is ${result}`;
+                })
+                .catch(error => {
+                    resultEl.textContent = `Error: ${error}`;
+                    resultEl.style.color = 'red';
+                });
+        });
+
+    </script>
+</body>
+</html>
