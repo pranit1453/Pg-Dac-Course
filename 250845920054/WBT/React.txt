@@ -1,0 +1,213 @@
+Writing markup with JSX:-
+function <func Name>() {
+  return (
+    <>
+      write JSX here
+      <h1>About</h1>
+      
+    </>
+  );
+}
+--------------------------------------------
+Displaying data :--
+return (
+  <h1>
+    {user.name}
+  </h1>
+);
+
+From image URL:-
+const user = {
+  name: 'Hedy Lamarr',
+  imageUrl: 'https://i.imgur.com/yXOvdOSs.jpg',
+  imageSize: 90,
+};
+
+export default function Profile() {
+  return (
+    <>
+      <h1>{user.name}</h1>
+      <img
+        className="avatar"
+        src={user.imageUrl}
+        alt={'Photo of ' + user.name}
+        style={{
+          width: user.imageSize,
+          height: user.imageSize
+        }}
+      />
+    </>
+  );
+}
+----------------------------------------------
+Conditional rendering:--
+const products = [
+  { title: 'Cabbage', isFruit: false, id: 1 },
+  { title: 'Garlic', isFruit: false, id: 2 },
+  { title: 'Apple', isFruit: true, id: 3 },
+];
+
+export default function ShoppingList() {
+  const listItems = products.map(product =>
+    <li
+      key={product.id}
+      style={{
+        color: product.isFruit ? 'magenta' : 'darkgreen'
+      }}
+    >
+      {product.title}
+    </li>
+  );
+
+  return (
+    <ul>{listItems}</ul>
+  );
+}
+--------------------------------------------------
+useState:-
+*useState: the current state (something), and the function that lets you update it (setSomething). 
+*You can give them any names, but the convention is to write [something, setSomething].
+
+import { useState } from 'react';
+
+export default function MyApp() {
+  return (
+    <div>
+      <h1>Counters that update separately</h1>
+      <MyButton />
+      <MyButton />
+    </div>
+  );
+}
+
+function MyButton() {
+  const [count, setCount] = useState(0);
+
+  function handleClick() {
+    setCount(count + 1);
+  }
+
+  return (
+    <button onClick={handleClick}>
+      Clicked {count} times
+    </button>
+  );
+}
+----------------------------------------------------
+Hooks:--
+*Functions starting with "use" are called Hooks.
+*If you want to use useState in a condition or a loop, extract a new component and put it there.
+
+1)General Pattern for Loops:---
+Problem: You want to create state for each item in a list.
+Solution: Create a child component that handles its own state.
+function ParentComponent({ items }) {
+  return (
+    <div>
+      {items.map((item, index) => (
+        <ItemWithState key={index} item={item} />
+      ))}
+    </div>
+  );
+}
+
+function ItemWithState({ item }) {
+  const [value, setValue] = useState('');
+
+  return (
+    <div>
+      <p>{item}</p>
+      <input value={value} onChange={e => setValue(e.target.value)} />
+    </div>
+  );
+}
+
+2)General Pattern for Conditions
+Problem: You want to use state only when a condition is true.
+Solution: Render a component conditionally and place the hook inside it.
+
+function ParentComponent({ showExtra }) {
+  return (
+    <div>
+      <p>Main content</p>
+      {showExtra && <ExtraComponent />}
+    </div>
+  );
+}
+
+function ExtraComponent() {
+  const [extraState, setExtraState] = useState(false);
+
+  return (
+    <button onClick={() => setExtraState(!extraState)}>
+      {extraState ? 'ON' : 'OFF'}
+    </button>
+  );
+}
+------------------------------------------------------
+Props and state
+*Props are like arguments you pass to a function.
+*State is like a component’s memory.
+	Props and state are different, but they work together. A parent component will often keep some information in state (so that it can change it), and pass it down to child components as their props.
+-------------------------------------------------------
+The Rules of JSX:---
+1. Return a single root element
+2. Close all the tags 
+3. camelCase all most of the things!
+--------------------------------------------------------
+*Where to use curly braces 
+You can only use curly braces in two ways inside JSX:
+
+--As text directly inside a JSX tag: 
+<h1>{name}'s To Do List</h1> works, but <{tag}>Gregorio Y. Zara's To Do List</{tag}> will not.
+--As attributes 
+immediately following the = sign: src={avatar} will read the avatar variable, but src="{avatar}" will pass the string "{avatar}"
+--------------------------------------------------------
+CSS in React
+
+style={{
+backgroundColor:'',
+color:''
+}}
+
+export default function TodoList() {
+  return (
+    <ul style={{
+      backgroundColor: 'black',
+      color: 'pink'
+    }}>
+      <li>Improve the videophone</li>
+      <li>Prepare aeronautics lectures</li>
+      <li>Work on the alcohol-fuelled engine</li>
+    </ul>
+  );
+}
+
+Another Approach
+
+const person = {
+  name: 'Gregorio Y. Zara',
+  theme: {
+    backgroundColor: 'black',
+    color: 'pink'
+  }
+};
+
+export default function TodoList() {
+  return (
+    <div style={person.theme}>
+      <h1>{person.name}'s Todos</h1>
+      <img
+        className="avatar"
+        src="https://i.imgur.com/7vQD0fPs.jpg"
+        alt="Gregorio Y. Zara"
+      />
+      <ul>
+        <li>Improve the videophone</li>
+        <li>Prepare aeronautics lectures</li>
+        <li>Work on the alcohol-fuelled engine</li>
+      </ul>
+    </div>
+  );
+}
+
