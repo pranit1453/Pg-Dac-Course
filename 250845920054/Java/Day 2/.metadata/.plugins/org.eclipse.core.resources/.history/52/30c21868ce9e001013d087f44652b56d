@@ -31,18 +31,11 @@ public class Test1 {
 				break;
 			case 2:
 				int sum = ArrayService1D.addOddPrimeNumber(arr);
-				System.out.println("Addition of odd Prime Number is: "+sum);
+				ArrayService1D.displayArray(sum);
 				break;
 			case 3:
-				System.out.print("Enter Key: ");
-				int key=sc.nextInt();
-				int[] arr1=ArrayService1D.findFactorial(arr,key);
-				ArrayService1D.displayArray(arr1);
 				break;
 			case 4:
-				System.out.print("Enter Key: ");
-				 key=sc.nextInt();
-				 
 				break;
 			case 5:
 				break;

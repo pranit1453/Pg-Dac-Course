@@ -84,41 +84,41 @@ public class ArrayService1D {
 	}
 	
  
+	
+	public static int[] findNthMaxPrime(int[] arr) {
+		int[] temp = new int[arr.length];
+		int cnt = 0;
+		for (int i = 0; i < arr.length; i++) {
+			if (isPrime(arr[i])) {
+				temp[cnt] = arr[i];
+				cnt++;
+			}
+		}
+		
+		return temp;
+	}
 
-//	private static int findMaxPos(int[] arr,int start) {
-//		int pos=start;
-//		int max=arr[start];
-//		for(int i=start+1;i<arr.length;i++) {
-//			if(max<arr[i]) {
-//				pos=i;
-//				max=arr[i];
-//			}
-//		}
-//		return pos;
-//	}
-//	public static int findNthMax(int[] arr, int key) {
-//		for(int i=0;i<key;i++) {
-//			int pos = findMaxPos(arr,i);
-//			int temp =arr[i];
-//			arr[i]=arr[pos];
-//			arr[pos]=temp;
-//		}
-//		return arr[key-1];
-//	}
-//
-//
-//	public static int findNthMaxPrime(int[] arr) {
-//		int[] temp = new int[arr.length];
-//		int cnt = 0;
-//		for (int i = 0; i < arr.length; i++) {
-//			if (isPrime(arr[i])) {
-//				temp[cnt] = arr[i];
-//				cnt++;
-//			}
-//		}
-//		
-//		return 0;
-//	}
+	public static int findNthMax(int maxPrime, int key) {
+		for(int i=0;i<key;i++) {
+			int pos = findMaxPos(maxPrime,i);
+			int temp =maxPrime[i];
+			maxPrime[i]=maxPrime[pos];
+			maxPrime[pos]=temp;
+		}
+		return maxPrime[key-1];
+	}
+
+	private static int findMaxPos(int maxPrime, int i) {
+		int pos=start;
+		int max=maxPrime[start];
+		for(int i=start+1;i<maxPrime.length;i++) {
+			if(max<maxPrime[i]) {
+				pos=i;
+				max=maxPrime[i];
+			}
+		}
+		return pos;
+	}
 
 	
 
