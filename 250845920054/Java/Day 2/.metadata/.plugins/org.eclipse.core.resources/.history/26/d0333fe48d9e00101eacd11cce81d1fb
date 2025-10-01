@@ -1,0 +1,68 @@
+import java.util.Scanner;
+
+public class Test {
+
+	public static void main(String[] args) {
+		System.out.println("Welcome to 1D Array");
+
+		/*
+		 * 1D Array Creation Accept Array Display Array Maximum Number in Array Minimum
+		 * Number in Array All Occurrences in Array Nth Maximum Number in Array Nth
+		 * Minimum Number in Array
+		 */
+
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter Size of an Array: ");
+		int size = sc.nextInt();
+		int[] arr = new int[size];
+		System.out.print("Accepted Array is: ");
+		ArrayService.acceptArray(arr);
+		ArrayService.displayArray(arr);
+		int choice;
+		do {
+			System.out.println("\n1. Search a number\n2. find max\n3. find min");
+			System.out.println("4. add all numbers\n5. find all occurances\n6. find nth maximum");
+			System.out.println("7. find nth minimum\n8.exit\n choice :");
+			choice = sc.nextInt();
+
+			switch (choice) {
+			case 1:
+				System.out.print("Enter Number to search: ");
+				int key = sc.nextInt();
+				int index = ArrayService.searchByKey(arr, key);
+				if (key != -1) {
+					System.out.print(key + " found at index " + index);
+					System.out.println("-------------------------");
+				} else {
+					System.out.println("Key is Invalid");
+					System.out.println("-------------------------");
+				}
+				break;
+			case 2:
+				int max = ArrayService.findMax(arr);
+				if (max != -1) {
+					System.out.print("Maximum Number in Array is: " + max);
+					System.out.println("-------------------------");
+				}
+				break;
+			case 3:
+				int min=ArrayService.findMin(arr);
+				if(min !=-1) {
+					System.out.print("Minimum Number in Array is: " + min);
+					System.out.println("-------------------------");
+				}
+				break;
+			case 4:
+				int add=ArrayService.addAllNum(arr);
+				System.out.print("Addition of All Number in Array is: " + add);
+				System.out.println("-------------------------");
+				break;
+			}
+			
+
+		} while (choice != 8);
+
+		sc.close();
+	}
+
+}

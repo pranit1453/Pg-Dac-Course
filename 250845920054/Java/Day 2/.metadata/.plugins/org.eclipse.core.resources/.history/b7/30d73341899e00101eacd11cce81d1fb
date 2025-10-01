@@ -1,0 +1,40 @@
+import java.util.Scanner;
+public class Test {
+
+	public static void main(String[] args) {
+		System.out.println("Welcome to 1D Array");
+
+		/*
+		 1D Array Creation
+		 Accept Array
+		 Display Array
+		 Maximum Number in Array
+		 Minimum Number in Array
+		 All Occurrences in Array
+		 Nth Maximum Number in Array
+		 Nth Minimum Number in Array
+		 */
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter Size of an Array: ");
+		int size = sc.nextInt();
+		int [] arr = new int[size];
+		int choice;
+		do {
+			System.out.println("1. Accept Array\n2. Display Array\n3. Maximum Number in Array\n4. Minimum Number in Array");
+			System.out.println("5. All Occurrences in Array\n6. Nth Maximum Number in Array\n7. Nth Minimum Number in Array\n8. Exit");
+			System.out.print("Enter Choice: ");
+			choice = sc.nextInt();
+			
+			switch(choice) {
+			case 1:
+				System.out.print("Accepted Array is: ");
+				ArrayService.acceptArray(arr);
+			}
+			
+		}while(choice != 8);
+		
+		sc.close();
+	}
+
+}

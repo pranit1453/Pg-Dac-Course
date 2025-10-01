@@ -1,0 +1,134 @@
+import java.util.*;
+
+public class ArrayService {
+	static Scanner sc = new Scanner(System.in);
+	// Accept Array
+	public static void acceptArray(int[] arr) {
+		for (int i = 0; i < arr.length; i++) {
+			System.out.println("Enter Data For index: " + i);
+			arr[i] = sc.nextInt();
+
+		}
+
+	}
+
+	// Display Array
+	public static void displayArray(int[] arr) {
+		for (int i = 0; i < arr.length; i++) {
+			System.out.print(i + ": " + arr[i] + "\t");
+		}
+
+	}
+
+	// Search Key in array and return index
+	public static int searchByKey(int[] arr, int key) {
+		for (int i = 0; i < arr.length; i++) {
+			if (key == arr[i]) {
+				return i;
+			}
+		}
+		return -1;
+	}
+
+	// Find Max in Array
+	public static int findMax(int[] arr) {
+		int max = arr[0];
+		for (int i = 1; i < arr.length; i++) {
+			if (max < arr[i]) {
+				max = arr[i];
+			}
+		}
+		return max;
+	}
+
+	// Find Min in Array
+	public static int findMin(int[] arr) {
+		int min = arr[0];
+		for (int i = 0; i < arr.length; i++) {
+			if (min > arr[i]) {
+				min = arr[i];
+			}
+		}
+		return min;
+	}
+
+	// Addition of all numbers
+	public static int addAllNum(int[] arr) {
+		int sum = 0;
+		for (int i = 0; i < arr.length; i++) {
+			sum += arr[i];
+		}
+		return sum;
+	}
+
+	public static int[] findAllOccurrence(int[] arr, int key) {
+		int[] temp = new int[arr.length];
+		// in temp array each index had -1 value
+		for (int i = 0; i < temp.length; i++) {
+			temp[i] = -1;
+		}
+		int cnt = 0;
+		for (int i = 0; i < arr.length; i++) {
+			if (arr[i] == key) {
+				temp[cnt] = i;
+				cnt++;
+			}
+		}
+		if (cnt > 0) {
+			return temp;
+		} else {
+			return null;
+		}
+
+	}
+
+	// find max position
+	private static int findMaxPos(int[] arr, int start) {
+		int pos = start;
+		int max = arr[start];
+
+		for (int i = start + 1; i < arr.length; i++) {
+			if (max < arr[i]) {
+				pos = i;
+				max = arr[i];
+			}
+		}
+		return pos;
+	}
+
+	// find nth Max Number
+	public static int findNthMax(int[] arr, int key) {
+		for (int i = 0; i < key; i++) {
+			int pos = findMaxPos(arr, i);
+			int temp = arr[i];
+			arr[i] = arr[pos];
+			arr[pos] = temp;
+		}
+		return arr[key - 1];
+	}
+
+	// find max position
+	private static int findMinPos(int[] arr, int start) {
+		int pos = start;
+		int min = arr[start];
+		for (int i = start + 1; i < arr.length; i++) {
+			if (min > arr[i]) {
+				pos = i;
+				min = arr[i];
+			}
+		}
+		return pos;
+	}
+
+	// find nth Min Number
+	public static int findNthMin(int[] arr, int key) {
+		for (int i = 0; i < key; i++) {
+			int pos = findMinPos(arr, i);
+			int temp = arr[i];
+			arr[i] = arr[pos];
+			arr[pos] = temp;
+		}
+		return arr[key - 1];
+	}
+
+}

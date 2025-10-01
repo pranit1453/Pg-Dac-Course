@@ -1,0 +1,9 @@
+
+public class ArrayService1D {
+
+	public static void acceptArray(int[] arr) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

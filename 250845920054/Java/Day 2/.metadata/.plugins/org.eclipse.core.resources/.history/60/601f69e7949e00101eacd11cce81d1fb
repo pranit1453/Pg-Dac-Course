@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class Test1 {
+
+	public static void main(String[] args) {
+		System.out.println("Welcome to 1D Array");
+
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter Size of an Array: ");
+		int size = sc.nextInt();
+		int[] arr = new int[size];
+		System.out.print("Accepted Array is: ");
+		ArrayService1D.acceptArray(arr);
+		ArrayService1D.displayArray(arr);
+		int choice;
+		do {
+			System.out.println("\n1. Search a number\n2. find max\n3. find min");
+			System.out.println("4. add all numbers\n5. find all occurances\n6. find nth maximum");
+			System.out.println("7. find nth minimum\n8.exit\n choice :");
+			choice = sc.nextInt();
+
+
+	}
+
+}
