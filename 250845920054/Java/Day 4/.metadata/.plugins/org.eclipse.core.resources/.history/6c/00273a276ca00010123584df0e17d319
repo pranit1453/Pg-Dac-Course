@@ -1,0 +1,57 @@
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Scanner;
+
+public class VehicleServices {
+	static Scanner sc = new Scanner(System.in);
+	static Vehicle[] vecArr;
+	static int count;
+	static {
+		System.out.print("Enter Size: ");
+		int size = sc.nextInt();
+		vecArr = new Vehicle[size];
+		vecArr[0] = new Vehicle(1, "Ramesh", "Two Wheeler", new Date(14, 06, 2013));
+		count = 5;
+	}
+
+	public static boolean addData() {
+		System.out.print("Enter V-ID: ");
+		int id = sc.nextInt();
+		sc.nextLine();
+		System.out.print("Enter V-Owner: ");
+		String name = sc.next();
+		System.out.print("Enter V-Type: ");
+		String type = sc.next();
+		System.out.print("Enter Purchase date(dd/mm/yyyy)");
+		String dt = sc.next();
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		Date d = null;
+		try {
+			d = sdf.parse(dt);
+		} catch (ParseException e) {
+
+			e.printStackTrace();
+		}
+		Vehicle v = new Vehicle(id, name, type, d);
+		if (count == vecArr.length) {
+			return false;
+		} else {
+			vecArr[count] = v;
+			count++;
+			return true;
+		}
+	}
+
+	public static void displayAll() {
+		for (Vehicle v : vecArr) {
+			if (v == null) {
+				break;
+			} else {
+				System.out.println(v);
+			}
+		}
+
+	}
+
+}

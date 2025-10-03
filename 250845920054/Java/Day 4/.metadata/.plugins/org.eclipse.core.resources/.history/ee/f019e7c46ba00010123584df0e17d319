@@ -1,0 +1,13 @@
+
+public class TestVehicle {
+
+	public static void main(String[] args) {
+		boolean status=VehicleServices.addData();
+		if(status) {
+			System.out.println("Data Added Successfully");
+		}else {
+			System.out.println("Error : Something went wrong!!!");
+		}
+	}
+
+}

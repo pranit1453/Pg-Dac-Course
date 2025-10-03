@@ -1,0 +1,43 @@
+import { useCallback, useState } from "react";
+import ErrorBoundary from "./ErrorBoundary";
+
+const PswCallBack = () => {
+  const [length, setLength] = useState('6');  // keep as string
+  const [psw, setPsw] = useState('');
+
+  const pswGenerator = useCallback(() => {
+    const len = Number(length);
+    if (!len || len <= 0) {
+      alert("Please enter a valid positive number for length.");
+      return;
+    }
+
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%&*?";
+    let pswd = '';
+    for (let i = 0; i < len; i++) {
+      const random = Math.floor(Math.random() * chars.length);
+      pswd += chars[random];
+    }
+    setPsw(pswd);
+  }, [length]);
+
+  return (
+    <div>
+      <h1>PassWord Generator.....</h1>
+      <label>Length: </label>
+      <input
+        type="number"
+        value={length}
+        onChange={(e) => setLength(e.target.value)}
+        min="1"
+      />
+      <br /><br />
+      <button onClick={pswGenerator}>Generate Random PassWord</button><br />
+      {/* <button onClick={copyPsw}>Copy PassWord</button> */}
+      <p><strong>Password:</strong> {psw}</p>
+      <ErrorBoundary></ErrorBoundary>
+    </div>
+  );
+};
+
+export default PswCallBack;

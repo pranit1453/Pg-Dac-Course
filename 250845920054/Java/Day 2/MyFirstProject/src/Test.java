@@ -66,7 +66,7 @@ public class Test {
 					ArrayService.displayArray(arrPos);
 
 				} else {
-					System.out.println("not found");
+					System.out.println("not found");	
 
 				}
 				break;

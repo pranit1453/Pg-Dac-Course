@@ -22,28 +22,34 @@ public class Test1 {
 			switch (choice) {
 			case 1:
 				int[] prime_check = ArrayService1D.allPrimeNumber(arr);
-				if (prime_check!=null) {
+				if (prime_check != null) {
 					System.out.println("All prime numbers are");
 					ArrayService1D.displayArray(prime_check);
-				}else {
+				} else {
 					System.out.println("Not found");
 				}
 				break;
 			case 2:
 				int sum = ArrayService1D.addOddPrimeNumber(arr);
-				System.out.println("Addition of odd Prime Number is: "+sum);
+				System.out.println("Addition of odd Prime Number is: " + sum);
 				break;
 			case 3:
 				System.out.print("Enter Key: ");
-				int key=sc.nextInt();
-				int[] arr1=ArrayService1D.findFactorial(arr,key);
+				int key = sc.nextInt();
+				int[] arr1 = ArrayService1D.findFactorial(arr, key);
 				ArrayService1D.displayArray(arr1);
 				break;
 			case 4:
 				System.out.print("Enter Key: ");
-				 key=sc.nextInt();
-				 
-				break;
+				key = sc.nextInt();
+
+				Integer nthMaxPrime = ArrayService1D.findNthMaxPrimeNumber(arr, key);
+
+				if (nthMaxPrime != null) {
+					System.out.println("The " + key + "th maximum prime number is: " + nthMaxPrime);
+				} else {
+					System.out.println("There is no " + key + "th maximum prime number in the array.");
+				}
 			case 5:
 				break;
 			case 6:

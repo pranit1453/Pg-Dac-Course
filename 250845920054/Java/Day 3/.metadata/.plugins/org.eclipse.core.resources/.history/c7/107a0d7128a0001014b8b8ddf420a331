@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class Test {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter Size of Row: ");
+		int row=sc.nextInt();
+		System.out.print("Enter Size of Col: ");
+		int col=sc.nextInt();
+		
+		int [][] arr1 = new int[row][col];
+		int [][] arr2 = new int [row][col];
+		
+		ArrayService2D.acceptArray(arr1,arr2);
+		ArrayService2D.displayArray(arr1,arr2);
+		sc.close();
+	}
+
+}

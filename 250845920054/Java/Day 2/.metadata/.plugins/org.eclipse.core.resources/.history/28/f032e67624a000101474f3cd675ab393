@@ -1,0 +1,129 @@
+import java.util.Scanner;
+
+public class ArrayService1D {
+
+	static Scanner sc = new Scanner(System.in);
+
+	// Accept array
+	public static void acceptArray(int[] arr) {
+		for (int i = 0; i < arr.length; i++) {
+			System.out.println("Enter Data For index: " + i);
+			arr[i] = sc.nextInt();
+
+		}
+	}
+
+	// Display Array
+	public static void displayArray(int[] arr) {
+		for (int i = 0; i < arr.length; i++) {
+			System.out.print(i + ": " + arr[i] + "\t");
+		}
+
+	}
+
+	// checking prime
+	private static boolean isPrime(int num) {
+		if (num <= 1) {
+			return false;
+		}
+		for (int i = 2; i <= Math.sqrt(num); i++) {
+			if (num % i == 0) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	// Checking Prime Numbers
+	public static int[] allPrimeNumber(int[] arr) {
+		int[] temp = new int[arr.length];
+		int cnt = 0;
+		for (int i = 0; i < arr.length; i++) {
+			if (isPrime(arr[i])) {
+				temp[cnt] = arr[i];
+				cnt++;
+			}
+		}
+		if (cnt >= 0) {
+			return temp;
+		} else {
+			return null;
+		}
+
+	}
+
+	public static int addOddPrimeNumber(int[] arr) {
+		int sum = 0;
+		for (int num : arr) {
+			if (num % 2 != 0 && isPrime(num)) {
+				sum += num;
+			}
+		}
+		return sum;
+	}
+
+	// factorial logic
+
+	public static int[] findFactorial(int[] arr, int key) {
+		int[] temp = new int[arr.length];
+		int cnt = 0;
+		for (int i = 0; i < arr.length; i++) {
+			int fact = 1;
+			if (arr[i] < key) {
+				for (int j = 1; j <= arr[i]; j++) {
+					fact *= j;
+
+				}
+				temp[cnt] = fact;
+				cnt++;
+
+			}
+		}
+
+		return temp;
+	}
+
+	public static int[] findNthMaxPrimeNumber(int[] arr, int key) {
+		int[] primes = new int[arr.length];
+		int count =0;
+		for(int num:arr) {
+			if(isPrime(num)) {
+				boolean duplicate = false;
+				for(int i=0;i<count;i++) {
+					if(primes[i]==num) {
+						duplicate = true;
+						break;
+					}
+				}
+				if(!duplicate) {
+					primes[count]=num;
+					count++;
+				}
+			}
+		}
+		//no primes found
+		if(count == 0) {
+			return null;
+		}
+		
+		//sort primes in descending array
+		for(int i=0;i<count-1;i++) {
+			for(int j=0;j<count-1;j++) {
+				if(primes[j]<primes[j+1]) {
+					int temp=primes[j];
+					primes[j]=primes[j+1];
+					primes[j+1]=temp;
+				}
+			}
+		}
+		if(key<=count) {
+			return primes[key-1];
+		}else {
+		return null;
+		}
+	}
+ 
+
+	
+
+}

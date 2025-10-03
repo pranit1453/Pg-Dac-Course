@@ -1,0 +1,59 @@
+import java.util.Scanner;
+
+public class Test1 {
+
+	public static void main(String[] args) {
+		System.out.println("Welcome to 1D Array");
+
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter Size of an Array: ");
+		int size = sc.nextInt();
+		int[] arr = new int[size];
+		System.out.print("Accepted Array is: ");
+		ArrayService1D.acceptArray(arr);
+		ArrayService1D.displayArray(arr);
+		int choice;
+		do {
+			System.out.println("\n1. Display all prime number\n2. add of odd prime number");
+			System.out.println("3. factorial of number less than 7\n4. find nth maximum prime number");
+			System.out.println("5. find nth minimum prime Number\n6.exit\n choice :");
+			choice = sc.nextInt();
+
+			switch (choice) {
+			case 1:
+				int[] prime_check = ArrayService1D.allPrimeNumber(arr);
+				if (prime_check!=null) {
+					System.out.println("All prime numbers are");
+					ArrayService1D.displayArray(prime_check);
+				}else {
+					System.out.println("Not found");
+				}
+				break;
+			case 2:
+				int sum = ArrayService1D.addOddPrimeNumber(arr);
+				System.out.println("Addition of odd Prime Number is: "+sum);
+				break;
+			case 3:
+				System.out.print("Enter Key: ");
+				int key=sc.nextInt();
+				int[] arr1=ArrayService1D.findFactorial(arr,key);
+				ArrayService1D.displayArray(arr1);
+				break;
+			case 4:
+				System.out.print("Enter Key: ");
+				key=sc.nextInt();
+				
+				Object arr_Prime = ArrayService1D.findNthMaxPrimeNumber(arr,key);
+			case 5:
+				break;
+			case 6:
+				break;
+			default:
+			}
+
+		} while (choice != 5);
+
+		sc.close();
+	}
+
+}

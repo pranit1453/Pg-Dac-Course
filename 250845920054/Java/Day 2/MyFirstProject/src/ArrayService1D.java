@@ -82,43 +82,47 @@ public class ArrayService1D {
 
 		return temp;
 	}
-	
- 
 
-//	private static int findMaxPos(int[] arr,int start) {
-//		int pos=start;
-//		int max=arr[start];
-//		for(int i=start+1;i<arr.length;i++) {
-//			if(max<arr[i]) {
-//				pos=i;
-//				max=arr[i];
-//			}
-//		}
-//		return pos;
-//	}
-//	public static int findNthMax(int[] arr, int key) {
-//		for(int i=0;i<key;i++) {
-//			int pos = findMaxPos(arr,i);
-//			int temp =arr[i];
-//			arr[i]=arr[pos];
-//			arr[pos]=temp;
-//		}
-//		return arr[key-1];
-//	}
-//
-//
-//	public static int findNthMaxPrime(int[] arr) {
-//		int[] temp = new int[arr.length];
-//		int cnt = 0;
-//		for (int i = 0; i < arr.length; i++) {
-//			if (isPrime(arr[i])) {
-//				temp[cnt] = arr[i];
-//				cnt++;
-//			}
-//		}
-//		
-//		return 0;
-//	}
+	public static Integer findNthMaxPrimeNumber(int[] arr, int key) {
+		int[] primes = new int[arr.length];
+		int count =0;
+		for(int num:arr) {
+			if(isPrime(num)) {
+				boolean duplicate = false;
+				for(int i=0;i<count;i++) {
+					if(primes[i]==num) {
+						duplicate = true;
+						break;
+					}
+				}
+				if(!duplicate) {
+					primes[count]=num;
+					count++;
+				}
+			}
+		}
+		//no primes found
+		if(count == 0) {
+			return null;
+		}
+		
+		//sort primes in descending array
+		for(int i=0;i<count-1;i++) {
+			for(int j=0;j<count-1;j++) {
+				if(primes[j]<primes[j+1]) {
+					int temp=primes[j];
+					primes[j]=primes[j+1];
+					primes[j+1]=temp;
+				}
+			}
+		}
+		if(key<=count) {
+			return primes[key-1];
+		}else {
+		return null;
+		}
+	}
+ 
 
 	
 
