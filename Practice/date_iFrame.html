@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IFRAME</title>
+</head>
+<body>
+    <h3>Date&Time</h3>
+    <p id="currDateTime"></p>
+    <script>
+        // function dateTime(){
+        //     const data = new Date();
+        //     // let day = data.getDay();
+        //     // const hr = data.getHours();
+        //     // const min = data.getMinutes();
+        //     // const sec = data.getSeconds();
+        //     document.getElementById("currDateTime").innerHTML=data;
+        // }
+        // dateTime()
+        (()=>{
+            const data = new Date();
+            document.getElementById("currDateTime").innerHTML=data;
+        })()
+        
+    </script>
+</body>
+</html>
